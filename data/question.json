@@ -1,0 +1,53 @@
+{
+  "title": "質問です",
+  "questions": [
+    {
+      "id": "name",
+      "label": "名前",
+      "placeholder": "名前を入力してください",
+      "type": "text",
+      "value": ""
+    },
+    {
+      "id": "email",
+      "label": "メールアドレス",
+      "placeholder": "メールアドレスを入力してください",
+      "type": "text",
+      "value": ""
+    },
+    {
+      "id": "favorit_animal",
+      "label": "犬派ですか、猫派ですか？",
+      "value": "犬派です",
+      "options": [
+        {
+          "label": "犬派です"
+        },
+        {
+          "label": "猫派です"
+        }
+      ],
+      "type": "select"
+    },
+    {
+      "id": "favorit_food",
+      "label": "好きな果物はどれですか？",
+      "value": "メロンです",
+      "options": [
+        {
+          "label": "メロンです"
+        },
+        {
+          "label": "スイカです"
+        }
+      ],
+      "type": "select"
+    },
+    {
+      "id": "concent",
+      "label": "同意します",
+      "type": "checkbox",
+      "value": "checked"
+    }
+  ]
+}
