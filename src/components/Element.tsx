@@ -9,7 +9,7 @@ type ElementProps = {
     type: string;
     label: string;
     placeholder: string;
-    value: any;
+    value: boolean & string & number;
     options: [
       {
         label: string;
