@@ -18,6 +18,7 @@ const ShowForm = () => {
     <div className="App">
       <Link to="/create">Create Form</Link>
       <h3>{title}</h3>
+      {JSON.stringify(elements)}
       <form>
         <ul>
           {questions
@@ -33,7 +34,7 @@ const ShowForm = () => {
           className="btn btn-primary"
           onClick={(e) => submitHandler(e)}
         >
-          Submit
+          送信
         </button>
       </form>
     </div>

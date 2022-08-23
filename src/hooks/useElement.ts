@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import questions from '../../data/question.json';
+import questions from '../../data/questions.json';
 
 const useElement = () => {
   const [elements, setElements] = useState(questions);

@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { v1 } from 'uuid';
 import '../App.css';
+import CreateInputForm from './elements/CreateInputForm';
+import FormTypeDispatcher from './elements/FormTypeDispatcher';
 
-type Input = {
-  title: string;
-  questions: [];
+type Question = {
+  id: string;
+  label: string;
+  placeholder: string;
+  type: string;
+  value: string;
 };
 
 const CreateForm = () => {
   const [title, setTitle] = useState('');
-  const [questions, setQuestions] = useState<any>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [question, setQuestion] = useState('');
+  const [isQuestionOpen, setIsQuestionOpen] = useState(false);
+  const [formType, setFormType] = useState('');
+
   //const [formData, setFormData] = useState({});
-  const newQuestion = {
-    id: 'name',
+  const newQuestion: Question = {
+    id: v1(),
     label: question,
     placeholder: `${question}を入力してください`,
     type: 'text',
@@ -44,7 +53,29 @@ const CreateForm = () => {
   };
 
   const handleAddQuestionButton = () => {
-    setQuestions((prev: any) => [...prev, newQuestion]);
+    setQuestions((prev) => [...prev, newQuestion]);
+  };
+
+  const handelQuestionOpenButton = () => {
+    setIsQuestionOpen(true);
+  };
+
+  const renderSwitch = (type: string): JSX.Element | null => {
+    switch (type) {
+      case 'text':
+        return (
+          <CreateInputForm
+            handleQuestionChange={handleQuestionChange}
+            handleAddQuestionButton={handleAddQuestionButton}
+          />
+        );
+      case 'checkbox':
+        return <div>CheckBox</div>;
+      case 'select':
+        return <div>Select</div>;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -53,32 +84,29 @@ const CreateForm = () => {
         <Link to="/show">Show Form</Link>
       </nav>
       <p>{JSON.stringify(formData)}</p>
-      <form>
-        <ul>
-          <li>
-            <input
-              type="text"
-              placeholder="Title"
-              onChange={handleTitleChange}
-            />
-          </li>
-        </ul>
-      </form>
-      <form>
-        <ul>
-          <li>
-            <input
-              type="text"
-              placeholder="質問"
-              onChange={handleQuestionChange}
-            />
-          </li>
-        </ul>
-      </form>
+      <div>
+        <form>
+          <ul>
+            <li>
+              <input
+                type="text"
+                placeholder="Title"
+                onChange={handleTitleChange}
+              />
+            </li>
+          </ul>
+        </form>
+      </div>
 
-      <button type="button" onClick={handleAddQuestionButton}>
-        Add
+      <button type="button" onClick={handelQuestionOpenButton}>
+        質問を追加する
       </button>
+      {isQuestionOpen ? (
+        <div>
+          <FormTypeDispatcher setFormType={setFormType} />
+        </div>
+      ) : null}
+      <div>{renderSwitch(formType)}</div>
       {/*<button type="button" onClick={handleSave}>
         Save
           </button>
