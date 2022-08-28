@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { v1 } from 'uuid';
 import '../App.css';
-import CreateInputForm from './elements/CreateInputForm';
-import FormTypeDispatcher from './elements/FormTypeDispatcher';
+import CreateInputForm from '../components/elements/CreateInputForm';
+import FormTypeDispatcher from '../components/elements/FormTypeDispatcher';
 
 type Question = {
   id: string;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../App.css';
+import Element from '../components/functional/Element';
 import useElement from '../hooks/useElement';
-import Element from './Element';
 
 const ShowForm = () => {
   const { elements, handleChange } = useElement();

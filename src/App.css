@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  height: 100vh;
 }
 
 form {
@@ -66,4 +67,10 @@ button {
 .dispatcher p {
   padding: 1em;
   margin-bottom: 0;
+}
+
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

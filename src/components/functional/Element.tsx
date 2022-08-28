@@ -1,7 +1,7 @@
 import React from 'react';
-import Checkbox from './elements/Checkbox';
-import Input from './elements/Input';
-import Select from './elements/Select';
+import Checkbox from '../elements/Checkbox';
+import Input from '../elements/Input';
+import Select from '../elements/Select';
 
 type ElementProps = {
   question: {

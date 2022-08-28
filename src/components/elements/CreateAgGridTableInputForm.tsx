@@ -1,20 +1,20 @@
 import React from 'react';
 
 type Props = {
-  handleQuestionChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleAddQuestionButton: () => void;
+  handleFieldChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleAddFieldButton: () => void;
 };
 
-const CreateInputForm = ({
-  handleQuestionChange,
-  handleAddQuestionButton,
+const CreateAgGridTableInputForm = ({
+  handleFieldChange,
+  handleAddFieldButton,
 }: Props) => {
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleQuestionChange(event);
+    handleFieldChange(event);
   };
 
   const onClick = () => {
-    handleAddQuestionButton();
+    handleAddFieldButton();
   };
 
   return (
@@ -22,7 +22,7 @@ const CreateInputForm = ({
       <form>
         <ul>
           <li>
-            <input type="text" placeholder="質問" onChange={onChange} />
+            <input type="text" placeholder="フィールド" onChange={onChange} />
           </li>
         </ul>
         <button type="button" onClick={onClick}>
@@ -33,4 +33,4 @@ const CreateInputForm = ({
   );
 };
 
-export default CreateInputForm;
+export default CreateAgGridTableInputForm;
