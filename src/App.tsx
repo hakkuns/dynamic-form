@@ -11,6 +11,9 @@ const App: React.FC = () => {
           <Link to="showgrid">AgGrid Table</Link> |
           <Link to="creategrid">Create AgGrid Table</Link>
         </p>
+        <p>
+          <Link to="draggablelist">Draggable List</Link>
+        </p>
       </nav>
     </div>
   );

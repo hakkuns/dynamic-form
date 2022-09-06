@@ -11,6 +11,7 @@ const CreateAgGridTableForm = () => {
   const [fieldName, setFieldName] = useState('');
   const [columnDefs, setColumnDefs] = useState<ColDef[]>([]);
   const [isFieldFormOpen, setIsFieldFormOpen] = useState(false);
+  const [isRowFormOpen, setIsRowFormOpen] = useState(false);
 
   const defaultColDef = useMemo<ColDef>(() => {
     return {
@@ -40,17 +41,24 @@ const CreateAgGridTableForm = () => {
     setIsFieldFormOpen(true);
   };
 
+  const handelRowFormOpenButton = () => {
+    setIsRowFormOpen(true);
+  };
+
   const handleFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFieldName(event.target.value as string);
   };
 
   const handleAddFieldButton = () => {
     setColumnDefs((prev: any) => [...prev, newField]);
-    setRowData((prev: any) => {
-      const newRow = prev[0];
-      newRow[fieldName] = '';
-      return [newRow];
-    });
+  };
+
+  const handelAddRowButton = () => {
+    const row = rowData[0];
+    const newRowData = [{ ...row }];
+    newRowData.push({ ...row });
+
+    setRowData(newRowData);
   };
 
   const handelCompleteButton = () => {
@@ -86,18 +94,17 @@ const CreateAgGridTableForm = () => {
           </ul>
         </form>
       </div>
-
-      <button type="button" onClick={handelFieldFormOpenButton}>
-        フィールドを追加する
-      </button>
-      {isFieldFormOpen ? (
-        <div>
-          <CreateAgGridTableInputForm
-            handleFieldChange={handleFieldChange}
-            handleAddFieldButton={handleAddFieldButton}
-          />
-        </div>
-      ) : null}
+      <div>
+        <CreateAgGridTableInputForm
+          text="列を追加する"
+          handleFieldChange={handleFieldChange}
+          handleAddFieldButton={handleAddFieldButton}
+        />
+      </div>
+      <div>
+        <p>行を追加する</p>
+        <button onClick={handelAddRowButton}>行を追加する</button>
+      </div>
 
       <button type="button" onClick={handelCompleteButton}>
         完了

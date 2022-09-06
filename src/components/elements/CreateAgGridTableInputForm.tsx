@@ -1,11 +1,13 @@
 import React from 'react';
 
 type Props = {
+  text: string;
   handleFieldChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleAddFieldButton: () => void;
 };
 
 const CreateAgGridTableInputForm = ({
+  text,
   handleFieldChange,
   handleAddFieldButton,
 }: Props) => {
@@ -20,6 +22,7 @@ const CreateAgGridTableInputForm = ({
   return (
     <div>
       <form>
+        <p>{text}</p>
         <ul>
           <li>
             <input type="text" placeholder="フィールド" onChange={onChange} />

@@ -11,7 +11,8 @@ const ShowAgGridTable = () => {
   const containerStyle = useMemo(() => ({ width: '100%', height: '100%' }), []);
   const gridStyle = useMemo(() => ({ height: '100%', width: '100%' }), []);
   const [rowData, setRowData] = useState<any[]>(gridData.rowData);
-  const [columnDefs, setColumnDefs] = useState<ColDef[]>(gridData.columnDefs);
+  const [columnDefs, setColumnDefs] = useState<any[]>(gridData.columnDefs);
+  console.log(columnDefs);
   const defaultColDef = useMemo<ColDef>(() => {
     return gridData.defaultColDef;
   }, []);
@@ -33,7 +34,7 @@ const ShowAgGridTable = () => {
   return (
     <div style={containerStyle}>
       <div className="example-wrapper">
-        <Link to="/create">Create Form</Link>
+        <Link to="/creategrid">Create Ag Grid Form</Link>
         <h3>{gridData.title}</h3>
         {JSON.stringify(rowData)}
 

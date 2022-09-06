@@ -29,33 +29,38 @@ const Element = ({
   question: { type, id, label, placeholder, value, options },
   handleChange,
 }: ElementProps) => {
-  const element =
-    type === 'text' ? (
-      <Input
-        id={id}
-        label={label}
-        placeholder={placeholder}
-        value={value}
-        handleChange={handleChange}
-      />
-    ) : type === 'checkbox' ? (
-      <Checkbox
-        id={id}
-        label={label}
-        value={value}
-        handleChange={handleChange}
-      />
-    ) : type === 'select' ? (
-      <Select
-        id={id}
-        label={label}
-        placeholder={placeholder}
-        value={value}
-        options={options}
-        handleChange={handleChange}
-      />
-    ) : null;
-  return element;
+  const content =
+    {
+      text: (
+        <Input
+          id={id}
+          label={label}
+          placeholder={placeholder}
+          value={value}
+          handleChange={handleChange}
+        />
+      ),
+      checkbox: (
+        <Checkbox
+          id={id}
+          label={label}
+          value={value}
+          handleChange={handleChange}
+        />
+      ),
+      select: (
+        <Select
+          id={id}
+          label={label}
+          placeholder={placeholder}
+          value={value}
+          options={options}
+          handleChange={handleChange}
+        />
+      ),
+    }[type] ?? null;
+
+  return <>{content}</>;
 };
 
 export default Element;
