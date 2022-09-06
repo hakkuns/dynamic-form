@@ -1,13 +1,20 @@
 import { ColDef } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import { useMemo, useState } from 'react';
+import { AgGridReact } from 'ag-grid-react';
+import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CreateAgGridTableInputForm from '../components/elements/CreateAgGridTableInputForm';
 
 const CreateAgGridTableForm = () => {
+  const gridRef = useRef<AgGridReact>(null);
+  const containerStyle = useMemo(
+    () => ({ width: '100%', height: '400px' }),
+    []
+  );
+  const gridStyle = useMemo(() => ({ height: '100%', width: '100%' }), []);
   const [title, setTitle] = useState('');
-  const [rowData, setRowData] = useState([{}]);
+  const [rowData, setRowData] = useState([]);
   const [fieldName, setFieldName] = useState('');
   const [columnDefs, setColumnDefs] = useState<ColDef[]>([]);
   const [isFieldFormOpen, setIsFieldFormOpen] = useState(false);
@@ -54,11 +61,11 @@ const CreateAgGridTableForm = () => {
   };
 
   const handelAddRowButton = () => {
-    const row = rowData[0];
-    const newRowData = [{ ...row }];
-    newRowData.push({ ...row });
-
-    setRowData(newRowData);
+    const newRow = {};
+    columnDefs.forEach((columnDef) => {
+      newRow[columnDef.field] = '';
+    });
+    setRowData((prev: any) => [...prev, newRow]);
   };
 
   const handelCompleteButton = () => {
@@ -75,12 +82,41 @@ const CreateAgGridTableForm = () => {
     setRowData(newRowData);
   };
 
+  const getRowId = useMemo<GetRowIdFunc>(() => {
+    return (params: GetRowIdParams) => {
+      return params.data.id;
+    };
+  }, []);
+
+  const handleChange = (event: any) => {
+    const id = event.data.id;
+    const newRow = rowData.find((row) => row.id === id);
+    const newRowData = rowData.filter((row) => row.id !== id);
+    newRowData.push(newRow);
+    newRowData.sort((a, b) => a.id - b.id);
+    setRowData(newRowData);
+  };
+
   return (
     <div className="App">
       <nav>
         <Link to="/showgrid">Show Grid Table</Link>
       </nav>
       <p>{JSON.stringify(formData)}</p>
+      <div style={containerStyle}>
+        <h2>Preview</h2>
+        <div style={gridStyle} className="ag-theme-alpine">
+          <AgGridReact
+            ref={gridRef}
+            rowData={rowData}
+            columnDefs={columnDefs}
+            defaultColDef={defaultColDef}
+            animateRows={true}
+            getRowId={getRowId}
+            onCellValueChanged={handleChange}
+          ></AgGridReact>
+        </div>
+      </div>
       <div>
         <form>
           <ul>
