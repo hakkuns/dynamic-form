@@ -5,6 +5,7 @@ import App from './App';
 import CreateAgGridTableForm from './page/CreateAgGridTableForm';
 import CreateForm from './page/CreateForm';
 import DraggableList from './page/DraggableList';
+import FormWithValidation from './page/FormWithValidation';
 import ShowAgGridTable from './page/ShowAgGridTable';
 import ShowForm from './page/ShowForm';
 
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Route path="showgrid" element={<ShowAgGridTable />} />
         <Route path="creategrid" element={<CreateAgGridTableForm />} />
         <Route path="draggablelist" element={<DraggableList />} />
+        <Route path="validation" element={<FormWithValidation />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -14,6 +14,9 @@ const App: React.FC = () => {
         <p>
           <Link to="draggablelist">Draggable List</Link>
         </p>
+        <p>
+          <Link to="validation">Form with Validation</Link>
+        </p>
       </nav>
     </div>
   );

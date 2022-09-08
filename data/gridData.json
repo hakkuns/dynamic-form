@@ -14,14 +14,16 @@
       "field": "項目1",
       "pinned": "left",
       "width": 100,
-      "cellStyle": { "color": "white", "background-color": "green" }
+      "editable": false,
+      "cellStyle": { "color": "white", "backgroundColor": "green" }
     },
     {
       "headerName": "ヘッダー2",
       "field": "項目1",
       "pinned": "left",
       "width": 100,
-      "cellStyle": { "color": "white", "background-color": "red" }
+      "editable": false,
+      "cellStyle": { "color": "white", "backgroundColor": "red" }
     },
     {
       "field": "項目3",
