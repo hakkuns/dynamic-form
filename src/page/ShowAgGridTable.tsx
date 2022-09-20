@@ -46,7 +46,7 @@ const ShowAgGridTable = () => {
     },
     {
       headerName: 'ヘッダー2',
-      field: '項目1',
+      field: '項目2',
       pinned: 'left',
       width: 100,
       cellStyle: { color: 'white', backgroundColor: 'red' },
