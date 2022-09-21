@@ -266,3 +266,5 @@ const FormWithValidation = () => {
     </form>
   );
 };
+
+export default FormWithValidation;
