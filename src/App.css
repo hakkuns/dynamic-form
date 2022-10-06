@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  height: 100vh;
 }
 
 form {
@@ -46,4 +47,30 @@ textarea:focus {
 textarea {
   vertical-align: top;
   height: 5em;
+}
+
+button {
+  margin: 1em;
+  padding: 0.5em 1em;
+  border: 1px solid #999;
+  border-radius: 1em;
+  background: #eee;
+  cursor: pointer;
+}
+
+.dispatcher {
+  background-color: rgb(239, 239, 239);
+  width: 300px;
+  margin: 1em auto;
+}
+
+.dispatcher p {
+  padding: 1em;
+  margin-bottom: 0;
+}
+
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

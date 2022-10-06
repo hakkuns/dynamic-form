@@ -1,0 +1,73 @@
+{
+  "title": "TESTです",
+  "defaultColDef": {
+    "flex": 1,
+    "editable": true,
+    "sortable": true,
+    "filter": true,
+    "minWidth": 150,
+    "resizable": true
+  },
+  "columnDefs": [
+    {
+      "headerName": "ヘッダー1",
+      "field": "項目1",
+      "pinned": "left",
+      "width": 100,
+      "editable": false,
+      "cellStyle": { "color": "white", "backgroundColor": "green" }
+    },
+    {
+      "headerName": "ヘッダー2",
+      "field": "項目1",
+      "pinned": "left",
+      "width": 100,
+      "editable": false,
+      "cellStyle": { "color": "white", "backgroundColor": "red" }
+    },
+    {
+      "field": "項目3",
+      "width": 240
+    },
+    { "field": "項目4", "width": 240 },
+    { "field": "項目5", "width": 240 },
+    { "field": "項目6", "width": 240 },
+    { "field": "項目7", "width": 240 },
+    { "field": "項目8", "width": 240 }
+  ],
+  "rowData": [
+    {
+      "id": "0",
+      "項目1": "固定された値1",
+      "項目2": "固定された値1",
+      "項目3": "",
+      "項目4": "",
+      "項目5": "",
+      "項目6": "",
+      "項目7": "",
+      "項目8": ""
+    },
+    {
+      "id": "1",
+      "項目1": "固定された値1",
+      "項目2": "固定された値1",
+      "項目3": "",
+      "項目4": "",
+      "項目5": "",
+      "項目6": "",
+      "項目7": "",
+      "項目8": ""
+    },
+    {
+      "id": "2",
+      "項目1": "固定された値1",
+      "項目2": "固定された値1",
+      "項目3": "",
+      "項目4": "",
+      "項目5": "",
+      "項目6": "",
+      "項目7": "",
+      "項目8": ""
+    }
+  ]
+}

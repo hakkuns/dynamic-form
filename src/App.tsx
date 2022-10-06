@@ -1,39 +1,23 @@
-import './App.css';
-import Element from './components/Element';
-import useElement from './hooks/useElement';
+import { Link } from 'react-router-dom';
 
-const App = () => {
-  const { elements, handleChange } = useElement();
-  const { questions, title } = elements ?? {};
-
-  const submitHandler = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    console.log(elements);
-  };
-
+const App: React.FC = () => {
   return (
     <div className="App">
-      <h3>{title}</h3>
-      <form>
-        <ul>
-          {questions
-            ? questions.map((question: any, id) => (
-                <li key={id}>
-                  <Element question={question} handleChange={handleChange} />
-                </li>
-              ))
-            : null}
-        </ul>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={(e) => submitHandler(e)}
-        >
-          Submit
-        </button>
-      </form>
+      <nav>
+        <p>
+          <Link to="show">Show Form</Link> |<Link to="create">Create Form</Link>
+        </p>
+        <p>
+          <Link to="showgrid">AgGrid Table</Link> |
+          <Link to="creategrid">Create AgGrid Table</Link>
+        </p>
+        <p>
+          <Link to="draggablelist">Draggable List</Link>
+        </p>
+        <p>
+          <Link to="validation">Form with Validation</Link>
+        </p>
+      </nav>
     </div>
   );
 };
